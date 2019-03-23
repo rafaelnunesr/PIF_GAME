@@ -26,4 +26,9 @@ def show_player_cards():
 
         print('{} {} {} {}'.format(colors[suit], rank, suit, '\033[0m'))
 
-show_player_cards()
+def show_cpu_cards():
+    for card in cpu:
+        rank = card[0]
+        suit = card[1]
+
+        print('{} {} {} {}'.format(colors[suit], rank, suit, '\033[0m'))
