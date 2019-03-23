@@ -14,7 +14,7 @@ colors = {'HEARTS':'\033[31m', 'SPARES':'\033[32m',
           'CLUBS':'\033[34m', 'DIAMONDS':'\033[33m', 'JOKER':'\033[37m'}
 
 
-def sort_by_hierarchy():
+def sort_cards():
 
     suits = 'HEARTS SPARES CLUBS DIAMONDS JOKER'
 

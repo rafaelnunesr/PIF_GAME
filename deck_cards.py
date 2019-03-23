@@ -10,7 +10,7 @@ french_cards = [(rank, suit) for suit in suits
                         ]
 
 for _ in range(2):
-    french_cards.append(('-', 'JOKER'))
+    french_cards.append(('-', 'JOKER')) # Add 2 Jokers to deck of cards
 
 
 french_cards_shuffled = []
