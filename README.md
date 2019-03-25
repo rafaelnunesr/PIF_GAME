@@ -29,3 +29,5 @@ Após a distribuição das cartas o primeiro jogador compra uma carta do maço, 
 **Vencedor**
 
 É o vencedor o jogador que bater.
+
+font: https://www.megajogos.com.br/pifpaf-online/rules
