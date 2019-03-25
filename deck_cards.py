@@ -1,6 +1,6 @@
 from random import randint
 
-suits = 'HEARTS SPARES CLUBS DIAMONDS'.split()
+suits = 'HEARTS SPADES CLUBS DIAMONDS'.split()
 
 ranks = ['A', '2', '3', '4', '5', '6',
          '7', '8', '9', '10', 'K', 'Q', 'J']
