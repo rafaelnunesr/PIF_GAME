@@ -16,4 +16,3 @@ def shuffle_french_deck():
 	shuffle(french_deck)
 
 shuffle_french_deck()
-print(french_deck)
