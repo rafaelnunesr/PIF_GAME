@@ -7,7 +7,7 @@ cpu_cards = []
 def give_initial_cards():
 
     '''It takes the first 18 cards from french_cards_shuffled,
-    and it gives 9 cards for player and cpu'''
+    and it gives 9 cards to player and cpu'''
 
     for i in range(18):
         if i % 2 == 0:
