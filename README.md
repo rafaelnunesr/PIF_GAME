@@ -44,4 +44,4 @@ Após a distribuição das cartas o primeiro jogador compra uma carta do maço, 
 **Fonts**
 
 Rules: font: https://www.megajogos.com.br/pifpaf-online/rules
-Art: http://www.freepik.com">Designed by rawpixel.com
+Art: http://www.freepik.com > Designed by rawpixel.com
