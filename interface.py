@@ -4,7 +4,7 @@ from tkinter import filedialog
 import os
 
 
-from player import *
+from main import *
 
 
 file = os.getcwd() + '\cards\\' # Windows
@@ -42,11 +42,11 @@ def show_deck_cards():
     open_img((file + img_deck_card), 350, 100)
 
 
-def ask_deck_card():
+def ask_deck_card(card_name):
 
-    next_card = deck[0]
-    del deck[0]
-    next_card = next_card[0] + '_' + next_card[1] + '.png'
+    suit, rank = card_name
+
+    next_card = suit + '_' + rank + '.png'
     img_deck_card = next_card
     open_img((file + img_deck_card), 350, 100)
 
