@@ -50,8 +50,12 @@ def ask_deck_card(card_name):
     img_deck_card = next_card
     open_img((file + img_deck_card), 350, 100)
 
+
+
+
 show_deck_cards()
 show_player_cards_tkinter()
+print(player_cards)
 
 root.mainloop()
 

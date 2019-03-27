@@ -13,6 +13,6 @@ for _ in range(2):
     french_deck.append(('-', 'JOKER')) # Add 2 Jokers to deck
     
 def shuffle_french_deck():
-	shuffle(french_deck)
+    shuffle(french_deck)
 
 shuffle_french_deck()

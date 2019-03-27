@@ -1,4 +1,4 @@
-from deck_cards import french_cards_shuffled as deck
+from deck_cards import french_deck as deck
 from logic import *
 
 player_cards = []
@@ -31,4 +31,3 @@ def pick_discarted_card():
 
 
 give_initial_cards()
-check_cards(player_cards)

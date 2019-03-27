@@ -1,49 +1,54 @@
-from collections import defaultdict
+# from main import *
 
-cards_values = {'A':1, 'J':11, 'Q':12, 'K':13, '-':0}
-
-
-
-from collections import defaultdict
-
-cards = [('1', 'SPADES'), ('2', 'SPADES'),
-       ('3', 'DIAMONDS'), ('3', 'SPADES'),
-       ('3', 'CLUBS'), ('3', 'HEARTS'),
-       ('4', 'CLUBS'),  ('5', 'CLUBS'),
-        ('6', 'CLUBS') ]
-        
-def check_cards(cards_dict):
-	
-	sequences = defaultdict(lambda: 0)
-
-	sequence_a = False
-	sequence_b = False
-	sequence_c = False
-	
-	for sequence in cards_dict.values():
-		if len(sequence) > 3:
-			for num in sequence:
-				if str(num) == sequences[str(num)]:
-					sequences[str(num)] += 1
-					del sequences[str(num)]
-		sequences[str(sequence)] += 1
-	
-	print(sequences)
-	
-def categorize_by_rank(card_list):
-	
-	suits = {'HEARTS':[], 'DIAMONDS':[],
-	         'CLUBS':[], 'SPADES':[]}
-	
-	for card in card_list:
-		suits[card[1]].append(card[int(0)])
-	
-	return suits
-	         
-
-b = categorize_by_rank(cards)
-check_cards(b)
+player_cards = [('J', 'DIAMONDS'), ('2', 'DIAMONDS'),
+                ('3', 'DIAMONDS'), ('7', 'HEARTS'),
+                ('Q', 'HEARTS'), ('10', 'DIAMONDS'),
+                ('A', 'CLUBS'), ('10', 'SPADES'),
+                ('K', 'HEARTS')]
 
 
-        
+class Logic:
+
+    cards_values = {'A': 1, 'J': 11, 'Q': 12, 'K': 13, '-': 0}
+
+    def __init__(self, list_cards):
+        self.list_cards = list_cards
+        self.dict_list_cards = {}
+        self.sequence_A = []
+        self.sequence_B = []
+        self.sequence_C = []
+        self.extra_cards = []
+
+    def convert_rank_cards(self):
+
+        temp_list_cards = []
+
+        for card in self.list_cards:
+            rank, suits = card
+
+            if rank in self.cards_values:
+                rank = self.cards_values[rank]
+
+            temp_list_cards.append((int(rank), suits))
+
+        self.list_cards = temp_list_cards
+
+    def categorize_by_suit(self):
+
+        dict_cards = {
+            'CLUBS': [], 'DIAMONDS': [],
+            'HEARTS': [], 'SPADES': [],
+            'JOKER': [] }
+
+        for card in self.list_cards:
+            dict_cards[card[1]].append(card[0])
+
+        self.dict_list_cards = dict_cards
+
+
+
+
+run_logic = Logic(player_cards)
+run_logic.convert_rank_cards()
+run_logic.categorize_by_suit()
 
