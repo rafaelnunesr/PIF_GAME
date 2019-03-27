@@ -28,11 +28,24 @@ class Logic:
             if rank in self.cards_values:
                 rank = self.cards_values[rank]
 
-            rank_suit = ''.join(str(rank) + '_' + suits[0])
-            temp_list_cards.append(rank_suit)
+            temp_list_cards.append((int(rank), suits))
 
-        self.list_cards = sorted(temp_list_cards)
+        self.list_cards = (temp_list_cards)
 
+    def categorize_by_suit(self):
+
+        dict_cards = {
+            'CLUBS': [], 'DIAMONDS': [],
+            'HEARTS': [], 'SPADES': [],
+            'JOKER': []}
+
+        for card in self.list_cards:
+            dict_cards[card[1]].append(card[0])
+
+        self.dict_list_cards = dict_cards
+
+    def show_a(self):
+        print(self.dict_list_cards)
 
 
 
@@ -41,3 +54,5 @@ class Logic:
 
 run_logic = Logic(player_cards)
 run_logic.convert_rank_cards()
+run_logic.categorize_by_suit()
+run_logic.show_a()
