@@ -1,27 +1,18 @@
-from random import randint
+from random import shuffle
 
 suits = 'HEARTS SPADES CLUBS DIAMONDS'.split()
 
 ranks = ['A', '2', '3', '4', '5', '6',
          '7', '8', '9', '10', 'K', 'Q', 'J']
 
-french_cards = [(rank, suit) for suit in suits
+french_deck = [(rank, suit) for suit in suits
                              for rank in ranks
-                        ]
+                        ] # deck cards organized
 
 for _ in range(2):
-    french_cards.append(('-', 'JOKER')) # Add 2 Jokers to deck of cards
+    french_deck.append(('-', 'JOKER')) # Add 2 Jokers to deck
+    
+def shuffle_french_deck():
+    shuffle(french_deck)
 
-
-french_cards_shuffled = []
-
-
-while len(french_cards) > 0:
-
-    select = randint(0, len(french_cards)-1)
-
-    french_cards_shuffled.append(french_cards[select])
-
-    french_cards.pop(select)
-
-
+shuffle_french_deck()
