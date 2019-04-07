@@ -13,6 +13,15 @@ file = os.getcwd() + '/cards/' # MAC
 class Interface:
 
     deck_showing_card = False
+    player_first_card_up = False
+    player_second_card_up = False
+    player_third_card_up = False
+    player_fourth_card_up = False
+    player_fifth_card_up = False
+    player_sixth_card_up = False
+    player_seventh_card_up = False
+    player_eight_card_up = False
+    player_nineth_card_up = False
 
     def __init__(self, master=None):
         self.master = master
@@ -22,7 +31,7 @@ class Interface:
 
         self.cards_deck = self.deck_module()
         self.player_first_card = self.first_card(0, 380)
-        self.player_second_card = self.second_card()
+        self.player_second_card = self.second_card(0, 380)
         self.player_third_card = self.third_card()
         self.player_fourth_card = self.fourth_card()
         self.player_fifth_card = self.fifth_card()
@@ -70,6 +79,7 @@ class Interface:
 
 
     def first_card(self, position_x, position_y):
+        global first_panel
         card_name = player_cards[0][0] + '_' + player_cards[0][1] + '.png'
         file_image = file + card_name
 
@@ -81,9 +91,18 @@ class Interface:
         first_panel.place(x=position_x, y=position_y)
 
     def first_card_clicked(self, event=0):
-        print('01')
+        global first_panel
+        first_panel.destroy()
+        if self.player_first_card_up == False:
+            self.player_first_card = self.first_card(0, 300)
+            self.player_first_card_up = True
+        else:
+            self.player_first_card = self.first_card(0, 380)
+            self.player_first_card_up = False
 
-    def second_card(self):
+
+    def second_card(self, position_x, position_y):
+        global second_panel
         card_name = player_cards[1][0] + '_' + player_cards[1][1] + '.png'
         file_image = file + card_name
 
@@ -96,7 +115,14 @@ class Interface:
         second_panel.place(x=position_x, y=position_y)
 
     def second_card_clicked(self, event=0):
-        print('02')
+        global second_panel
+        second_panel.destroy()
+        if self.player_second_card_up == False:
+            self.player_second_card = self.second_card(90, 300)
+            self.player_second_card_up = True
+        else:
+            self.player_second_card = self.second_card(90, 380)
+            self.player_second_card_up = False
 
     def third_card(self):
         card_name = player_cards[2][0] + '_' + player_cards[2][1] + '.png'
