@@ -32,9 +32,6 @@ class Interface:
         self.player_nineth_card = self.nineth_card()
 
 
-        self.position_first_card = 0
-
-
     def show_image(self, file_image, position_x, position_y, size_x=180,
                    size_y=250, angulo=0):
 
