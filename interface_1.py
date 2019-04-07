@@ -16,7 +16,7 @@ class Interface:
 
     def __init__(self, master=None):
         self.master = master
-        self.geometry("1000x700+300+150")
+        self.master.geometry("1000x700+300+150")
         self.master.resizable(width=True, height=True)
         self.master.title('PIF GAME')
 
