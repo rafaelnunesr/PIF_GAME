@@ -55,4 +55,4 @@ class Logic:
 run_logic = Logic(player_cards)
 run_logic.convert_rank_cards()
 run_logic.categorize_by_suit()
-run_logic.show_a()
+# run_logic.show_a()
