@@ -28,12 +28,11 @@ class Img:
         img = ImageTk.PhotoImage(img.rotate(angle))
         return img
 
-
 class Background(Img):
 
     def __init__(self, master=None):
         super().__init__(master)
-        self.master = master
+
         w, h = self.__window_configuration()
         self.__background_image(w, h)
         self.__load_logo()
@@ -83,15 +82,59 @@ class Background(Img):
         logo_panel.image = img
         logo_panel.place(x=20, y=20)
 
-class Interface(Img):
-    def __init__(self, master=None):
+class Player_Deck(Img):
+
+    def __init__(self, master):
         super().__init__(master)
+
+class Deck_Cards(Img):
+
+    deck_showing_card = False
+
+    def __init__(self, master):
+        super().__init__(master)
+        self.deck_module()
+
+    def deck_module(self, file_image=None, position_x=400, position_y=150):
+
+        if file_image == None:
+            file_image = ''.join(file_cards + 'BACK_CARD.png')
+
+        img = self.show_image(file_image)
+        deck_panel = Button(self.master, image=img, borderwidth=0)
+        deck_panel.image = img
+        deck_panel.bind('<Button-1>', self.deck_clicked)
+        deck_panel.place(x=position_x, y=position_y)
+
+    def deck_clicked(self, event=None):
+
+        if len(deck) > 0:
+            if self.deck_showing_card == False:
+                name = deck[0][0] + '_' + deck[0][1] + '.png'
+                del deck[0]
+                self.deck_module((file_cards + name))
+                self.deck_showing_card = True
+
+            else:
+                self.deck_module()
+                self.deck_showing_card = False
+
+        else:
+            file_image = ''.join(file_cards + 'END_DECK.png')
+            self.deck_module(file_image)
+
+class Interface:
+    def __init__(self, master=None):
         self.master = master
 
         self.__init_bck()
+        self.__init_back_cards()
 
     def __init_bck(self):
         Background(self.master)
+
+    def __init_back_cards(self):
+        Deck_Cards(self.master)
 
 
 
