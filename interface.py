@@ -8,18 +8,38 @@ from main import deck
 from player import player_cards, change_order_cards
 
 
-# file = os.getcwd() + '/cards/' # MAC OS
-file = os.getcwd() + '\cards\\' # WINDOWS OS
+# MAC OS
+# file_cards = os.getcwd() + '/cards/'
+# file_img = os.getcwd() + '/img/'
 
-class Interface:
+# WINDOWS OS
+file_cards = os.getcwd() + '\cards\\'
+file_img = os.getcwd() + '\img\\'
+
+class Img:
 
     def __init__(self, master=None):
+        self.master = master
+
+    def show_image(self, file_image, size_x=180, size_y=250, angle=0):
+        '''Receives file name, sizes, and angle from each image'''
+        img = Image.open(file_image).convert("RGBA")
+        img = img.resize((size_x, size_y), Image.ANTIALIAS)
+        img = ImageTk.PhotoImage(img.rotate(angle))
+        return img
+
+
+class Background(Img):
+
+    def __init__(self, master=None):
+        super().__init__(master)
         self.master = master
         w, h = self.__window_configuration()
         self.__background_image(w, h)
         self.__load_logo()
 
     def __window_configuration(self):
+        '''Setup window size Tk'''
         self.master.winfo_width()
 
         ws, hs = self.__get_window_size()
@@ -40,36 +60,40 @@ class Interface:
         return w, h
 
     def __get_window_size(self):
-        # get screen width and height
+        '''get screen width and height from user'''
         ws = self.master.winfo_screenwidth()  # width of the screen
         hs = self.master.winfo_screenheight()  # height of the screen
         return  [ws, hs]
 
     def __background_image(self, w, h):
-        name_backgound = ''.join(os.getcwd() + '\img\\' + 'PIF_BACKGROUND.jpg') # Windows OS
-        # name_backgound = ''.join(os.getcwd() + '/img/' + 'PIF_BACKGROUND.jpg') # MAC OS
+        '''Load background image'''
+        name_backgound = file_img + 'PIF_BACKGROUND.jpg'
 
         img = self.show_image(name_backgound, w, h)
-
-        panel = Label(self.master, image=img)
-        panel.image = img
-        panel.pack()
+        bck_panel = Label(self.master, image=img)
+        bck_panel.image = img
+        bck_panel.pack()
 
     def __load_logo(self):
-        logo = ''.join(os.getcwd() + '\img\\' + 'PIF_LOGO.png') # Windows OS
-        # logo = ''.join(os.getcwd() + '/img/' + 'PIF_LOGO.png') # MAC OS
+        '''Load logo image'''
+        logo = file_img + 'PIF_LOGO.png'
 
         img = self.show_image(logo,250,80)
-        panel = Label(self.master, image=img)
-        panel.image = img
-        panel.place(x=20, y=20)
+        logo_panel = Label(self.master, image=img)
+        logo_panel.image = img
+        logo_panel.place(x=20, y=20)
 
-    def show_image(self, file_image, size_x=180, size_y=250, angulo=0):
+class Interface(Img):
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.master = master
 
-        img = Image.open(file_image).convert("RGBA")
-        img = img.resize((size_x, size_y), Image.ANTIALIAS)
-        img = ImageTk.PhotoImage(img.rotate(angulo))
-        return img
+        self.__init_bck()
+
+    def __init_bck(self):
+        Background(self.master)
+
+
 
 
 root = Tk()
