@@ -48,13 +48,13 @@ class Deck_Cards(Img):
         reject_buttom = file_img + 'REJECT.png'
 
         img_accept = self.show_image(accept_buttom, 60,60)
-        accept_panel = Button(self.master, image=img_accept, borderwidth=0)
+        accept_panel = Button(self.master, image=img_accept, highlightthickness = 0, bd = 0)
         accept_panel.image = img_accept
         accept_panel.bind('<Button-1>', self.card_accepted)
         accept_panel.place(x=365, y=10)
 
         img_reject = self.show_image(reject_buttom, 60,60)
-        reject_panel = Button(self.master, image=img_reject, borderwidth=0)
+        reject_panel = Button(self.master, image=img_reject, highlightthickness = 0, bd = 0)
         reject_panel.image = img_reject
         reject_panel.bind('<Button-1>', self.card_rejected)
         reject_panel.place(x=440, y=10)

@@ -53,7 +53,8 @@ class Background(Img):
         '''Load logo image'''
         logo = file_img + 'PIF_LOGO.png'
 
-        img = self.show_image(logo,250,80)
-        logo_panel = Label(self.master, image=img)
+        img = self.show_image(logo,250,70)
+        logo_panel = Label(self.master, image=img, borderwidth=0)
         logo_panel.image = img
         logo_panel.place(x=20, y=20)
+

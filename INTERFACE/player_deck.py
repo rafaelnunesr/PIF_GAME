@@ -40,7 +40,7 @@ class Player_Deck(Img):
 
         img = self.show_image(file_image)
 
-        card_panel = Button(self.master, image=img, borderwidth=0)
+        card_panel = Button(self.master, image=img, highlightthickness = 0, bd = 0)
         card_panel.image = img
         card_panel.bind('<Button-1>', func)
         card_panel.place(x=position_x, y=position_y)

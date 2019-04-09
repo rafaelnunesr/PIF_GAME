@@ -14,3 +14,4 @@ class Img:
         img = img.resize((size_x, size_y), Image.ANTIALIAS)
         img = ImageTk.PhotoImage(img.rotate(angle))
         return img
+
