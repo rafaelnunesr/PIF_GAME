@@ -1,6 +1,7 @@
 from INTERFACE.image_generator import *
 from INTERFACE.directories import *
 from main import *
+from player import *
 
 class Deck_Cards(Img):
 
@@ -60,7 +61,10 @@ class Deck_Cards(Img):
         reject_panel.place(x=440, y=10)
 
     def card_accepted(self, event=None):
-        print('accepted')
+        exchange_card(deck.pop(0))
+        self.deck_module()
+        self.deck_showing_card = False
+        self.__destroy_buttoms()
 
     def card_rejected(self, event=None):
         self.deck_module()
@@ -79,7 +83,6 @@ class Deck_Cards(Img):
 
     def bin(self):
         if self.card_in_bin != None:
-            print('running')
             file_image = file_cards + self.card_in_bin
             img = self.show_image(file_image)
             bin_panel = Button(self.master, image=img, borderwidth=0)
