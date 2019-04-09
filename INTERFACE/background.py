@@ -44,7 +44,10 @@ class Background(Img):
         '''Load background image'''
         name_backgound = file_img + 'PIF_BACKGROUND.jpg'
 
-        img = self.show_image(name_backgound, w, h)
+        ws = self.master.winfo_screenwidth()
+        hs = self.master.winfo_screenheight()
+
+        img = self.show_image(name_backgound, ws, hs)
         bck_panel = Label(self.master, image=img)
         bck_panel.image = img
         bck_panel.pack()
