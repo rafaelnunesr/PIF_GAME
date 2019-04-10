@@ -2,10 +2,12 @@ from INTERFACE.directories import *
 from INTERFACE.image_generator import *
 from player import *
 
+
 class Player_Deck(Img):
 
     display_info_player = {1:False, 2:False, 3:False, 4:False, 5:False,
                            6:False, 7:False, 8:False, 9:False}
+
 
     def __init__(self, master):
         super().__init__(master)
@@ -26,7 +28,6 @@ class Player_Deck(Img):
 
 
     def __build_image_card(self,card_position_list, position_x, position_y, card_clicked):
-        global card_panel
         cards = {1:'self.first_card_clicked', 2:'self.second_card_clicked',
                  3:'self.third_card_clicked', 4:'self.fourth_card_clicked',
                  5:'self.fifth_card_clicked', 6:'self.sixth_card_clicked',
@@ -39,16 +40,14 @@ class Player_Deck(Img):
         file_image = file_cards + card_name
 
         img = self.show_image(file_image)
-
         card_panel = Button(self.master, image=img, highlightthickness = 0, bd = 0)
         card_panel.image = img
         card_panel.bind('<Button-1>', func)
         card_panel.place(x=position_x, y=position_y)
 
+
     def __destroy_cards(self):
-        global card_panel
-        print(card_panel)
-        card_panel.destroy()
+        pass
 
 
     def first_card(self, position_x=0, position_y=None):
@@ -78,3 +77,4 @@ class Player_Deck(Img):
 
     def second_card_clicked(self, event=None):
         print('Rafa')
+

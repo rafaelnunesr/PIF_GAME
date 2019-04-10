@@ -10,20 +10,18 @@ class Interface:
     def __init__(self, master=None):
         self.master = master
 
-        self.__init_bck()
-        self.__init_back_cards()
-        self.__init_player_deck()
+        self.init_bck()
+        self.init_back_cards()
+        self.init_player_deck()
 
-    def __init_bck(self):
+    def init_bck(self):
         bck(self.master)
 
-    def __init_back_cards(self):
+    def init_back_cards(self):
         Deck_Cards(self.master)
 
-    def __init_player_deck(self):
+    def init_player_deck(self):
         Player_Deck(self.master)
-
-
 
 
 root = Tk()

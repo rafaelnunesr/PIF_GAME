@@ -11,3 +11,9 @@ def change_order_cards(first_card_selected, second_card_position):
 def exchange_card(card_from_deck):
 
     player_cards[1] = card_from_deck
+
+def accept_card(new_card, old_card):
+    pass
+
+
+

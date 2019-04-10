@@ -1,7 +1,9 @@
 from INTERFACE.image_generator import *
 from INTERFACE.directories import *
+from INTERFACE.player_deck import *
 from main import *
 from player import *
+
 
 class Deck_Cards(Img):
 
@@ -23,20 +25,17 @@ class Deck_Cards(Img):
         deck_panel.bind('<Button-1>', self.deck_clicked)
         deck_panel.place(x=position_x, y=position_y)
 
+
     def deck_clicked(self, event=None):
 
         if len(deck) > 0:
             if self.deck_showing_card == False:
                 name = deck[0][0] + '_' + deck[0][1] + '.png'
-                del deck[0]
                 self.__destroy_deck()
                 self.card_in_bin = name
                 self.deck_module((file_cards + name))
                 self.deck_showing_card = True
 
-            '''else:
-                self.deck_module()
-                self.deck_showing_card = False'''
             self.__buttoms_accept_reject()
 
         else:
@@ -61,16 +60,19 @@ class Deck_Cards(Img):
         reject_panel.place(x=440, y=10)
 
     def card_accepted(self, event=None):
-        exchange_card(deck.pop(0))
+        exchange_card(deck[0])
         self.deck_module()
         self.deck_showing_card = False
         self.__destroy_buttoms()
+        Player_Deck(self.master)
+        self.__delete_card_from_deck()
 
     def card_rejected(self, event=None):
         self.deck_module()
         self.deck_showing_card = False
         self.bin()
         self.__destroy_buttoms()
+        self.__delete_card_from_deck()
 
     def __destroy_buttoms(self):
         global accept_panel, reject_panel
@@ -80,6 +82,9 @@ class Deck_Cards(Img):
     def __destroy_deck(self):
         global deck_panel
         deck_panel.destroy()
+
+    def __delete_card_from_deck(self):
+        del deck[0]
 
     def bin(self):
         if self.card_in_bin != None:
