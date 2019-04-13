@@ -20,7 +20,7 @@ class Deck_Cards(Img):
             file_image = ''.join(file_cards + 'BACK_CARD.png')
 
         img = self.show_image(file_image)
-        deck_panel = Button(self.master, image=img, borderwidth=0)
+        deck_panel = Button(self.master, image=img, borderwidth=0, highlightthickness = 0)
         deck_panel.image = img
         deck_panel.bind('<Button-1>', self.deck_clicked)
         deck_panel.place(x=position_x, y=position_y)
@@ -90,7 +90,7 @@ class Deck_Cards(Img):
         if self.card_in_bin != None:
             file_image = file_cards + self.card_in_bin
             img = self.show_image(file_image)
-            bin_panel = Button(self.master, image=img, borderwidth=0)
+            bin_panel = Button(self.master, image=img, borderwidth=0, highlightthickness=0)
             bin_panel.image = img
             bin_panel.bind('<Button-1>', self.deck_clicked)
             bin_panel.place(x=600, y=80)
