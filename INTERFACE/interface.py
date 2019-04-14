@@ -22,7 +22,7 @@ class Interface:
         Deck_Cards(self.master)
 
     def init_player_deck(self):
-        Player_Deck(self.master)
+        run(self.master)
 
     def init_menu(self):
         Menu_Bar(self.master)
