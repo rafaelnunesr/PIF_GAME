@@ -1,5 +1,6 @@
 from deck_cards import french_deck as deck
-from logic import *
+# from logic import *
+
 
 player_cards = []
 cpu_cards = []

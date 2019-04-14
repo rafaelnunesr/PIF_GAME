@@ -1,4 +1,4 @@
-from tkinter import *
+'''from tkinter import *
 from PIL import ImageTk, Image
 from tkinter import filedialog
 import os
@@ -392,4 +392,4 @@ class Interface:
 
 root = Tk()
 Interface(root)
-root.mainloop()
+root.mainloop()'''
