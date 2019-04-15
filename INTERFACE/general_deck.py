@@ -60,15 +60,17 @@ class Deck_Cards(Img):
         reject_panel.place(x=440, y=10)
 
     def card_accepted(self, event=None):
-        print(card_up)
-        print(display_info_player)
+        card = get_card_up()
         try:
-            if display_info_player[card_up]['UP']:
-                exchange_card(card_up - 1, deck[0])
+            if display_info_player[card]['UP']:
+                self.card_in_bin = exchange_card(card - 1, deck[0])
+                self.bin()
                 self.deck_module()
                 self.deck_showing_card = False
                 self.__destroy_buttoms()
+                destroy_cards()
                 self.__delete_card_from_deck()
+                display_info_player[card]['UP'] = False
             run(self.master)
         except KeyError:
             pass

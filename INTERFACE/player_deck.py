@@ -50,21 +50,16 @@ class Player_Deck(Img):
         card_panel.place(x=position_x, y=position_y)
         display_info_player[card_position_list + 1]['BUTTOM'] = card_panel
 
-    def destroy_cards(self):
-        for x in range(1, 10):
-            display_info_player[x]['BUTTOM'].destroy()
-
     def card_clicked(self, position):
         global card_up
         card_up = position
-        print(card_up)
 
         if display_info_player[position]['UP']:
             display_info_player[position]['UP'] = False
         else:
             display_info_player[position]['UP'] = True
 
-        self.destroy_cards()
+        destroy_cards()
         self.card_game_positions()
 
     def first_card_clicked(self, event=None):
@@ -96,3 +91,10 @@ class Player_Deck(Img):
 
 def run(master):
     Player_Deck(master)
+
+def get_card_up():
+    return card_up
+
+def destroy_cards():
+    for x in range(1, 10):
+        display_info_player[x]['BUTTOM'].destroy()

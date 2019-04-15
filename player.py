@@ -9,11 +9,12 @@ def change_order_cards(first_card_selected, second_card_position):
 
 
 def exchange_card(card_from_player, card_from_deck):
-
+    original_card = player_cards[card_from_player]
+    card_name = original_card[0] + '_' + original_card[1] + '.png'
     player_cards[card_from_player] = card_from_deck
+    return card_name
 
-def accept_card(new_card, old_card):
-    pass
+
 
 
 
