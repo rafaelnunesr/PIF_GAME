@@ -13,6 +13,7 @@ display_info_player = {
                                             for x in range(1, 10)
                                                                     }
 card_up = 0
+potential_changes = []
 
 class Player_Deck(Img):
 
@@ -93,7 +94,9 @@ def run(master):
     Player_Deck(master)
 
 def get_card_up():
-    return card_up
+    for card in display_info_player:
+        if display_info_player[card]['UP'] == True:
+            return card
 
 def destroy_cards():
     for x in range(1, 10):
