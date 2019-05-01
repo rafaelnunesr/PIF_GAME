@@ -53,6 +53,7 @@ class Player_Deck(Img):
 
     def card_clicked(self, position):
         global card_up
+        self.check_change_card(position)
         card_up = position
 
         if display_info_player[position]['UP']:
@@ -89,6 +90,14 @@ class Player_Deck(Img):
 
     def nineth_card_clicked(self, event=None):
         self.card_clicked(9)
+
+    def check_change_card(self, position):
+        try:
+            if display_info_player[card_up]['UP']:
+                change_order_cards(position - 1, card_up - 1)
+
+        except KeyError:
+            pass
 
 def run(master):
     Player_Deck(master)
