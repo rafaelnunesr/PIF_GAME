@@ -23,12 +23,7 @@ class MyGame(arcade.Window):
         self.build_player_cards()
 
 
-    def build_player_cards(self):
-
-        position_x = 300
-        angle = 40
-        y = 1
-        initial_position_y = 200
+    def build_player_cards(self, position_x=300, angle=40, y=1, initial_position_y=200):
 
         positions_y = {
             1:initial_position_y, 2:initial_position_y + 20,
@@ -53,10 +48,15 @@ class MyGame(arcade.Window):
             y += 1
             angle -= 10
 
+            self.show_property_arcade()
+
     def on_draw(self):
         arcade.start_render()
 
         self.cards_player_list.draw()
+
+    def show_property_arcade(self):
+       pass
 
 
 def main():
